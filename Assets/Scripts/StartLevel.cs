@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class StartLevel : MonoBehaviour
 {
+    private float timeRemaining = 3;
+    private bool isCount = false;
+
     public TextMeshProUGUI txtCountDown;
-    float timeRemaining = 3;
-    bool isCount = false;
+    public PlayerController playerController;
 
     
     IEnumerator Start()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         isCount = true;
     }
 
@@ -28,15 +30,21 @@ public class StartLevel : MonoBehaviour
         {
             if (timeRemaining > 1)
             {
-                txtCountDown.text = timeRemaining.ToString();
+                txtCountDown.text = Mathf.Round(timeRemaining).ToString();
                 timeRemaining -= Time.deltaTime;
                 
             }
             else
             {
-                isCount = false;
-                txtCountDown.text = "";
+                LevelStart();
             }
         }
+    }
+
+    private void LevelStart()
+    {
+        isCount = false;
+        txtCountDown.text = "";
+        playerController.rb2d.bodyType = RigidbodyType2D.Dynamic;
     }
 }
