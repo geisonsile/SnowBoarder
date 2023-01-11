@@ -14,7 +14,7 @@ public class FinishLine : MonoBehaviour
         {
             finishEffect.Play();
             GetComponent<AudioSource>().Play();
-            Invoke("ReloadScene", loadDelay);  
+            Invoke("ReloadScene", loadDelay);
         }
     }
 

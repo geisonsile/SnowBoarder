@@ -12,7 +12,6 @@ public class DustTrail : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             dustParticles.Play();
-            //AudioSource.PlayClipAtPoint(boardSlidingSFX, gameObject.transform.position);
             GetComponent<AudioSource>().PlayOneShot(boardSlidingSFX);
         }
     }

@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
-        //rb2d = GetComponent<Rigidbody2D>();
         surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
     }
 
@@ -32,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     public void DisableControls()
     {
+        surfaceEffector2D.speed = 0;
         canMove = false;
     }
 

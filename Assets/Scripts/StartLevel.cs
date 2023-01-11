@@ -8,12 +8,14 @@ public class StartLevel : MonoBehaviour
     private float timeRemaining = 3;
     private bool isCount = false;
 
-    public TextMeshProUGUI txtCountDown;
+    [SerializeField] private TextMeshProUGUI txtCountDown;
     public PlayerController playerController;
+    public Timer timer;
 
     
     IEnumerator Start()
     {
+        txtCountDown.text = timeRemaining.ToString();
         yield return new WaitForSeconds(0.2f);
         isCount = true;
     }
@@ -46,5 +48,6 @@ public class StartLevel : MonoBehaviour
         isCount = false;
         txtCountDown.text = "";
         playerController.rb2d.bodyType = RigidbodyType2D.Dynamic;
+        timer.timerIsRunning = true;
     }
 }
