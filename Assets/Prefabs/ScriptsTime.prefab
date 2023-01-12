@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794043768823904265}
   m_Layer: 0
-  m_Name: Scripts
+  m_Name: ScriptsTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -25,6 +25,6 @@ public class CrashDetector : MonoBehaviour
 
     private void ReloadScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

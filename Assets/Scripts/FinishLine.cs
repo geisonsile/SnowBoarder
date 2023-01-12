@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,12 +12,18 @@ public class FinishLine : MonoBehaviour
         {
             finishEffect.Play();
             GetComponent<AudioSource>().Play();
-            Invoke("ReloadScene", loadDelay);
+            Invoke("LoadNextLevel", loadDelay);
         }
     }
 
-    private void ReloadScene()
+    private void LoadNextLevel()
     {
-        SceneManager.LoadScene(0);
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+            nextSceneIndex = 0;
+
+        //FindObjectOfType<ScenePersist>().ResetScenePersist();
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
